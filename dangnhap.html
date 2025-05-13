@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="trangchu.html">Trang chủ🏠</a></li>
+                <li><a href="sanpham.html">Sản phẩm</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
+                <li><a href="giohang.html">Giỏ hàng</a></li>
+                <li><a href="dangnhap.html">Đăng Nhập</a><a href="dangky.html">/Đăng Ký</a></li>
+            </ul>
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+            <button>Tìm kiếm</button>
+        </nav>
+    </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+   
+    <div class="login-container">
+        <h2>Đăng Nhập</h2>
+        <form action="process_login.php" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Đăng Nhập</button>
+        </form>
+    </div>
+
+    <p>Chưa có tài khoản? <a href="dangky.html">Đăng ký ngay</a></p>
+
+</body>
+</html>

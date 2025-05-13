@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <form class="thanhtoan-container" method="post">
+        <h2>Thông tin thanh toán</h2>
+        <label for="name">Họ và Tên:</label>
+        <input type="text" id="name" name="name" placeholder="Nhập họ và tên của bạn" required>
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
+    
+        <label for="address">Địa chỉ:</label>
+        <input type="text" id="address" name="address" placeholder="Nhập địa chỉ của bạn" required>
+    
+        <label for="phone">Số điện thoại:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại của bạn" required>
+        
+        <label for="note">Ghi chú:</label>
+        <textarea id="note" name="note" rows="4" placeholder="Nhập ghi chú của bạn"></textarea>
+        <label for="payment-method">Phương thức thanh toán:</label>
+        <select id="payment-method" name="payment-method" onchange="showPaymentDetails()" required>
+            <option value="cod">Thanh toán khi nhận hàng</option>
+            <option value="bank-transfer">Chuyển khoản ngân hàng</option>
+            <option value="momo">Momo</option>
+        </select>
+        <br></br>
+        <button type="submit" oneclick="thanhtoan" >Thanh toán đon hàng</button>
+        <!-- Bank details section -->
+    <div id="bank-details" style="display: none; margin-top: 20px; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+        <h3>Thông tin tài khoản ngân hàng</h3>
+        <p><strong>Ngân hàng:</strong> MB Bank</p>
+        <p><strong>Chủ tài khoản:</strong> Đặng Nguyễn Ngọc Tài</p>
+        <p><strong>Số tài khoản:</strong> 0778804478</p>
+        <p><strong>Chi nhánh:</strong> Bình Dương</p>
+        <p>Quét mã QR để thanh toán</p>
+        <img src="maqr/z6539030456139_8c96a7c68b17cadcafb15e60420f4f35.jpg" alt="maqrqr" alt="QR Code" width="200" height="200">
+    </div>
+        <!--momo details section-->
+        <div id="momo-details" style="display: none; margin-top: 20px; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+            <h3>Thông tin thanh toán qua Momo</h3>
+            <p><strong>Số điện thoại:</strong> 0901234567</p>
+            <p><strong>Chủ tài khoản:</strong> Nguyễn Văn B</p>
+            <p>Quét mã QR để thanh toán:</p>
+            <img src="maqr/z6539037244770_9aa343aad64fba0560753540bc0004f6.jpg" alt="Momo QR Code" width="200" height="200">
+        </div>
+
+        <br></br>
+        <button type="button" onclick="window.location.href='trangchu.html'">Quay lại trang chủ</button>
+        <button type="button" onclick="window.location.href='sanpham.html'">Tiếp tục mua sắm</button>
+    </form>
+    <script>
+        function showPaymentDetails() {
+            const paymentMethod = document.getElementById('payment-method').value;
+            const bankDetails = document.getElementById('bank-details');
+            const momoDetails = document.getElementById('momo-details');
+    
+            // Show or hide sections based on the selected payment method
+            if (paymentMethod === 'bank-transfer') {
+                bankDetails.style.display = 'block';
+                momoDetails.style.display = 'none';
+            } else if (paymentMethod === 'momo') {
+                momoDetails.style.display = 'block';
+                bankDetails.style.display = 'none';
+            } else {
+                bankDetails.style.display = 'none';
+                momoDetails.style.display = 'none';
+            }
+        }
+        </script> 
+    <script>
+        document.querySelector('.thanhtoan-container').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            alert('Bạn đã thanh toán thành công!'); // Display success message
+            // Optionally redirect to another page
+            window.location.href = 'trangchu.html';
+        });
+    </script>
+    
+   
+        
+</body>
+</html>

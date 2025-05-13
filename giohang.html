@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <header>
+        
+        <nav>
+            <ul>
+                <li><a href="trangchu.html">Trang chủ🏠</a></li>
+                <li><a href="sanpham.html">Sản phẩm</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
+                <li><a href="giohang.html">Giỏ hàng</a></li>
+                <li><a href="dangnhap.html">Đăng Nhập</a><a href="dangky.html">/Đăng Ký</a></li>
+            </ul>
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+            <button>Tìm kiếm</button>
+        </nav>
+    </header>
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ hàng</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Linh Kiện VN</title>
+        <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+<br></br>
+<h2>🛒 Giỏ Hàng</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+        </tr>
+    </thead>
+    <tbody id="cart-table-body">
+    </tbody>
+</table>
+
+<script>
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const tbody = document.getElementById('cart-table-body');
+    const table = document.querySelector('table'); // Select the table element
+
+    let total = 0;
+
+    function updateCart() {
+        tbody.innerHTML = '';
+        total = 0;
+
+        cart.forEach((item, index) => {
+            const row = document.createElement('tr');
+
+            const subtotal = item.price * item.quantity;
+            total += subtotal;
+
+            row.innerHTML = `
+                <td>${item.name}</td>
+                <td>${item.price.toLocaleString()}₫</td>
+                <td>${item.quantity}</td>
+                <td>${subtotal.toLocaleString()}₫</td>
+                <td><button onclick="deleteItem(${index})">Xóa</button></td>
+            `;
+
+            tbody.appendChild(row);
+        });
+
+        if (cart.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="5">Giỏ hàng của bạn đang trống.</td></tr>`;
+        } else {
+            const totalRow = document.createElement('tr');
+            totalRow.innerHTML = `
+                <td colspan="3"><strong>Tổng cộng</strong></td>
+                <td><strong>${total.toLocaleString()}₫</strong></td>
+                <td></td>
+            `;
+            tbody.appendChild(totalRow);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function deleteItem(index) {
+        cart.splice(index, 1);
+        updateCart();
+
+        // Apply black background to the table
+        table.style.backgroundColor = 'black';
+        table.style.color = 'white'; // Optional: Change text color to white for better visibility
+    }
+
+    updateCart();
+</script>
+<form class="chuyentoithanhtoan-container">
+    <button type="button" style="display: block; margin: 0 auto; "  onclick="window.location.href='thanhtoan.html';">Tiến hành thanh toán</button>
+</form>
+
+</body>
+</html>

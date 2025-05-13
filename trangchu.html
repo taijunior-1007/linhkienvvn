@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linh Kiện VN</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+
+        <nav>
+            <ul>
+                <li><a href="trangchu.html">Trang chủ🏠</a></li>
+                <li><a href="sanpham.html">Sản phẩm</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
+                <li><a href="giohang.html">Giỏ hàng</a></li>
+                <li><a href="dangnhap.html">Đăng Nhập</a><a href="dangky.html">/Đăng Ký</a></li>
+            </ul>
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+            <button>Tìm kiếm</button>
+        </nav>
+    </header>
+    
+
+    <section class="banner">
+        <img  src="banner/Screenshot 2025-04-02 080024.png" alt="Khuyến mãi lớn" width="200%" height="400px">
+    </section>
+    <marquee style="color: red; font-size: 20px; font-weight: bold; background-color: yellow; padding: 10px; border-radius: 5px; width: 100%;"> 
+        🔥 Siêu Sale! Giảm giá 50% toàn bộ sản phẩm trong hôm nay! Mua ngay! 🔥
+        🔥 Siêu Sale! Giảm giá 50% toàn bộ sản phẩm trong hôm nay! Mua ngay! 🔥
+        🔥 Siêu Sale! Giảm giá 50% toàn bộ sản phẩm trong hôm nay! Mua ngay! 🔥
+        🔥 Siêu Sale! Giảm giá 50% toàn bộ sản phẩm trong hôm nay! Mua ngay! 🔥
+        🔥 Siêu Sale! Giảm giá 50% toàn bộ sản phẩm trong hôm nay! Mua ngay! 🔥
+        🔥 Siêu Sale! Giảm giá 50% toàn bộ sản phẩm trong hôm nay! Mua ngay! 🔥
+        🔥 Siêu Sale! Giảm giá 50% toàn bộ sản phẩm trong hôm nay! Mua ngay! 🔥
+    </marquee>
+
+    
+    <div style="display: table; width: 100vw;display: table-cell; vertical-align: middle;">
+            <section class="categories" style="background-color: blueviolet; width: 50%; text-align: center; margin: 0 auto; padding: 20px; border-radius: 10px;">
+                <h2>Danh Mục Sản Phẩm</h2>
+                <div class="category-list">
+                    
+                        <h3><a href="sanpham.html">Máy Tính</a></h3>
+                        <h3><a href="sanpham.html">Laptop</a></h3>
+                        <h3><a href="sanpham.html">Linh Kiện</a></h3>
+                        <h3><a href="sanpham.html">Phụ Kiện</a></h3>
+                    </div>
+                </div>
+            </section>
+    </div>
+
+<!--thêm vào giỏ hàng-->
+ <script>
+    function addToCart(name, price) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Kiểm tra nếu sản phẩm đã có trong giỏ hàng
+        const existing = cart.find(item => item.name === name);
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            cart.push({ name: name, price: price, quantity: 1 });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${name} đã được thêm vào giỏ hàng!`);
+    }
+</script>
+<!-- sản phẩm nổi bậcx`x-->
+    <section class="featured-products">
+        <h2>Sản Phẩm Nổi Bật</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="sanphamnoibac/view_vx2528j_gearvn_f596f16bc729449a9a722d007ba49aa4_grande.webp" alt="Màn Hình">
+                <h3>Màn hình ViewSonic VX2528J 25" IPS 180Hz</h3>
+                <span>Giá: 2.890.000đ</span>
+                <button onclick="addToCart('Màn hình ViewSonic VX2528J 25 IPS 180Hz',2890000)">🛒 Thêm vào giỏ hàng</button>
+                <form class="chuyentoithanhtoan-container">
+                    <button type="button" onclick="window.location.href='thanhtoan.html';">Mua Ngay</button>
+                </form>
+
+
+            </div>
+
+
+            <div class="product">
+                <img src="sanphamnoibac/f7a42cd48b1a7f325af695b3dba_1024x1024_d0730f9347bd45858c1a36aa992b51fb_64e87797e31545279c73ab9f23cf1228_grande.webp" alt="Chuột">
+                <h3>Chuột Razer DeathAdder V3 Pro</h3>
+                <span>Giá: 3.190.000đ</span>
+                <button onclick="addToCart('Chuột Razer DeathAdder V3 Pro',3190000)">🛒 Thêm vào giỏ hàng</button>
+                <form class="chuyentoithanhtoan-container">
+                    <button type="button"    onclick="window.location.href='thanhtoan.html';">Mua Ngay</button>
+                </form>     
+        </div>
+    </section>
+
+    <section class="news-section">
+        <h2>Tin Tức Mới Nhất</h2>
+        <div class="news-item">
+            <div class="content">
+                <h3>MSI tiên phong ra mắt dòng laptop mới trang bị RTX 50 series đầu tiên tại Việt Nam                </h3>
+                <p>MSI đã chính thức giới thiệu loạt laptop mới nhất năm 2025 đến thị trường Việt Nam, nổi bật là các mẫu laptop gaming trang bị GPU NVIDIA RTX 50 series.
+                     Những sản phẩm này sẽ bắt đầu đến tay khách hàng từ tuần tới.</p>
+                <a href="https://www.thegioididong.com/tin-tuc/msi-tien-phong-ra-mat-dong-laptop-moi-trang-bi-rtx-50-series-dau-tien-tai-viet-nam-1576324">Xem chi tiết</a>
+            </div>
+        </div>
+        <div class="news-item">
+            <div class="content">
+                <h3>Ra mắt laptop chơi game giá rẻ dưới 18 triệu đồng, nhưng có những điểm cần chú ý</h3>
+                <p>Cuối tháng 2 vừa qua, Colorful đã chính thức giới thiệu sản phẩm laptop chơi game Colorful X15 XS (2025) với mức giá chỉ gần 700 USD, tức gần 18 triệu đồng. Sản phẩm này nhắm đến phân khúc giá rẻ, 
+                    đặc biệt phù hợp với học sinh, sinh viên và người dùng trẻ cần một chiếc laptop chơi game với giá thành dễ tiếp cận.</p>
+                <a href="https://genk.vn/ra-mat-laptop-choi-game-gia-re-duoi-18-trieu-dong-nhung-co-nhung-diem-can-chu-y-20250305212357573.chn">Xem chi tiết</a>
+            </div>
+        </div>
+        <div class="news-item">
+            <div class="content">
+                <h3>5
+                    Công nghệNhịp sống sốThứ ba, 28/1/2025, 19:00 (GMT+7)
+                    Đòn áp thuế của ông Trump có thể làm tăng giá smartphone, laptop</h3>
+                <p>MỹNếu ông Trump thực hiện lời đe dọa áp thuế, hàng loạt thiết bị công nghệ như smartphone, laptop và tablet có thể bị tăng giá đáng kể.</p>
+                <a href="https://vnexpress.net/don-ap-thue-cua-ong-trump-co-the-lam-tang-gia-smartphone-laptop-4844018.html">Xem chi tiết</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="trangchu.html">Trang chủ🏠</a></li>
+                <li><a href="sanpham.html">Sản phẩm</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
+                <li><a href="giohang.html">Giỏ hàng</a></li>
+                <li><a href="dangnhap.html">Đăng Nhập</a><a href="dangky.html">/Đăng Ký</a></li>
+            </ul>
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+            <button>Tìm kiếm</button>
+        </nav>
+    </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Mục Sản Phẩm</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="banner">
+        <br></br>
+        <h1 style="text-align: center; "  >    Danh Mục Sản Phẩm</h1>
+    </section>
+
+    <main class="container">
+      <!--thêm vào giỏ hàng-->
+        <script>
+            function addToCart(name, price) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+                // Kiểm tra nếu sản phẩm đã có trong giỏ hàng
+                const existing = cart.find(item => item.name === name);
+                if (existing) {
+                    existing.quantity += 1;
+                } else {
+                    cart.push({ name: name, price: price, quantity: 1 });
+                }
+        
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert(`${name} đã được thêm vào giỏ hàng!`);
+            }
+        </script>
+       
+        <!-- Danh sách sản phẩm -->
+        <section class="products">
+            <h2>Sản phẩm nổi bật</h2>
+            <div class="sort-options">
+                <label for="sort">Sắp xếp theo:</label>
+                <select id="sort">
+                    <option value="default">Mặc định</option>
+                    <option value="price-asc">Giá: Thấp đến Cao</option>
+                    <option value="price-desc">Giá: Cao đến Thấp</option>
+                </select>
+            </div>
+            <div class="product-grid">
+                <div class="product" id="laptop">
+                    <img src="sanpham/zenbook_14_ux3405ca_product_photo_3b_ponder_blue_06_65dda53c57804927ba29393748705da8_grande.webp" alt="Laptop ASUS">
+                    <h3>Laptop ASUS Zenbook 14 UX3405CA</h3>
+                    <p class="price">Giá: 36.990.000₫</p>
+                    <button onclick="addToCart('Laptop ASUS Zenbook 14 UX3405CA',36990000)">🛒 Thêm vào giỏ hàng</button>
+
+                    <form class="chuyentoithanhtoan-container">
+                        <button type="button" onclick="window.location.href='thanhtoan.html';">Mua Ngay</button>
+                    </form>                
+                </div>
+
+                <div class="product" id="laptop">
+                    <img src="sanpham/ai-ph18-73-non-fingerprint-with-backlit-on-wp-ai-logo-abyssal-black-02_26fe3374d9b940a3b7690e75618e3b78_grande.webp" alt="Laptop Acer">
+                    <h3>Laptop Acer Predator Helios 18</h3>
+                    <p class="price">Giá: 149.990.000₫</p>
+                    <button onclick="addToCart('Laptop Acer Predator Helios 18',149990000)">🛒 Thêm vào giỏ hàng</button>
+
+                    <form class="chuyentoithanhtoan-container">
+                        <button type="button" onclick="window.location.href='thanhtoan.html';">Mua Ngay</button>
+                    </form>     
+                                </div>
+
+                <div class="product" id="chuot">
+                    <img src="sanpham/logitech-g102-lightsync-rgb-white-1_eb113ff7e83b4289812fb9bff7034b4d_581b766edc6e402e995fd81477456742_grande.webp" alt="Chuột Logitech">
+                    <h3>Chuột Logitech G102 LightSync</h3>
+                    <p class="price">Giá: 390.000₫</p>
+                    <button onclick="addToCart('Chuột Logitech G102 LightSync',390000)">🛒 Thêm vào giỏ hàng</button>
+
+                    <form class="chuyentoithanhtoan-container">
+                        <button type="button" onclick="window.location.href='thanhtoan.html';">Mua Ngay</button>
+                    </form>     
+                                </div>
+
+                <div class="product" id="chuot">
+                    <img src="sanpham/-nh-glorious-model-o-2-wired-matte-38394900807925-removebg-preview.webp" alt="Chuột Glorious">
+                    <h3>Chuột Glorious Model O Wired</h3>
+                    <p class="price">Giá: 1.490.000₫</p>
+                    <button onclick="addToCart('Chuột Glorious Model O Wired',1490000)">🛒 Thêm vào giỏ hàng</button>
+
+                    <form class="chuyentoithanhtoan-container">
+                        <button type="button" onclick="window.location.href='thanhtoan.html';">Mua Ngay</button>
+                    </form>     
+                                </div>
+
+                <div class="product" id="tainghe">
+                    <img src="sanpham/ezgif-3-2a102e266ba9_15326bef447c473eb07d61b0e843d206_5771f81db9cb441cbc3698ac0e24f888_grande.webp" alt="Tai nghe Razer">
+                    <h3>Tai nghe Razer Kraken V3 X</h3>
+                    <p class="price">Giá: 1.250.000₫</p>
+                    <button onclick="addToCart('Tai nghe Razer Kraken V3 X',1250000)">🛒 Thêm vào giỏ hàng</button>
+
+                    <form class="chuyentoithanhtoan-container">
+                        <button type="button" onclick="window.location.href='thanhtoan.html';">Mua Ngay</button>
+                    </form>     
+                                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
